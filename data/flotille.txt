@@ -1,0 +1,6 @@
+# ceci est une ligne de commentaire qui commence par « # »
+# format de 1 ligne :
+# nomDuBateau<ESPACE>nombreSurGrille<ESPACE>nombreCasesHorizontales
+# exemples :
+torpilleur 2 2
+porte-avion 1 4

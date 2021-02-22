@@ -5,6 +5,10 @@
 #ifndef TP_CARMADA_H
 #define TP_CARMADA_H
 
+#include <iterator>
+
+#include "BiblioStd.h"
+#include "CBateau.h"
 
 class CArmada {
 
@@ -13,7 +17,7 @@ class CArmada {
 
     public:
         void ajouterBateau(CBateau& unBat);
-        CBateau* getBateau(int i);
+        CBateau getBateau(int i);
         int getEffectifTotal();
         int getNbreTotCases();
         int getEffectif();
