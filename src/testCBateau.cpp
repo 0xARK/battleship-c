@@ -194,7 +194,7 @@ void testCopyConstructor() {
 
 void testEqualOperator() {
 
-    cout << "\n\n********** Test de la surcharge de l'opérateur égal **********" << endl;
+    cout << "\n\n********** Test de la surcharge de l'opérateur égal **********\n\n" << endl;
 
     CBateau c1;
     cout << c1;

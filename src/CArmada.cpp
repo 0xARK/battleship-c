@@ -24,12 +24,12 @@ void CArmada::ajouterBateau(CBateau &unBat) {
  * @param i - index i of ship to get
  * @return the ship at index i
  */
-CBateau CArmada::getBateau(int i) {
+CBateau* CArmada::getBateau(int i) {
 
     if (i < 0 || i > (int)m_listeBateaux.size())
         throw invalid_argument("Trying to get a ship out of armada array.");
 
-    return m_listeBateaux[i];
+    return &m_listeBateaux[i];
 
 }
 
