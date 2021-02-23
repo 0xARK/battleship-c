@@ -4,6 +4,11 @@
 
 #include "CArmada.h"
 
+/**
+ * Allows to add a ship into this armada
+ *
+ * @param unBat - ship to add
+ */
 void CArmada::ajouterBateau(CBateau &unBat) {
 
     if (&m_listeBateaux == NULL)
@@ -13,6 +18,12 @@ void CArmada::ajouterBateau(CBateau &unBat) {
 
 }
 
+/**
+ * Allows to get a ship from this aramda
+ *
+ * @param i - index i of ship to get
+ * @return the ship at index i
+ */
 CBateau CArmada::getBateau(int i) {
 
     if (i < 0 || i > (int)m_listeBateaux.size())
@@ -22,6 +33,11 @@ CBateau CArmada::getBateau(int i) {
 
 }
 
+/**
+ * Allows to get number of ship into this armada
+ *
+ * @return number of ship into this armada
+ */
 int CArmada::getEffectifTotal() {
 
     if (&m_listeBateaux == NULL)
@@ -31,6 +47,11 @@ int CArmada::getEffectifTotal() {
 
 }
 
+/**
+ * Allows to get total number of cases used by all ships of this armada
+ *
+ * @return number of cases used by all ships of this armada
+ */
 int CArmada::getNbreTotCases() {
 
     if (&m_listeBateaux == NULL)
@@ -46,6 +67,11 @@ int CArmada::getNbreTotCases() {
 
 }
 
+/**
+ * Allows to get number of ship not sunk in this armada
+ *
+ * @return number of ship not sunk in this armada
+ */
 int CArmada::getEffectif() {
 
     if (&m_listeBateaux == NULL)
@@ -63,6 +89,9 @@ int CArmada::getEffectif() {
 
 }
 
+/**
+ * Allows to fill in armada vector with an armada config file
+ */
 void CArmada::getArmadaFromFile() {
 
     string filename = "../data/flotille.txt";
@@ -107,6 +136,11 @@ void CArmada::getArmadaFromFile() {
 
 }
 
+/**
+ * Allows to randomly place all the ships of this armada on the game grid.
+ *
+ * @return true if all the boats could be placed, false if not
+ */
 bool CArmada::placerAleatoirement() {
 
     srand( (unsigned)time(NULL));
