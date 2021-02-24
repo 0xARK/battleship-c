@@ -94,43 +94,39 @@ int CArmada::getEffectif() {
  */
 void CArmada::getArmadaFromFile() {
 
-    string filename = "../data/flotille.txt";
-
+    string filename = "/home/mateo/Documents/cours/2a/M4105C/TP/BatailleNavale/data/flotille.txt";
     string line;
     ifstream input;
-    input.open ( filename.c_str(), ios::in );
+    input.open(filename.c_str(), ios::in);
 
-    while (!input.eof()) {
+        while (!input.eof()) {
 
-        getline ( input, line, '\n' );
-        cout << "[I] " << line << endl;
+            getline(input, line, '\n');
+            cout << "[I] " << line << endl;
 
-        if (line.at(0) != '#') {
+            if (line.at(0) != '#') {
 
-            istringstream buf(line);
-            istream_iterator<std::string> beg(buf), end;
-            std::vector<std::string> tokens(beg, end);
+                istringstream buf(line);
+                istream_iterator <std::string> beg(buf), end;
+                std::vector <std::string> tokens(beg, end);
 
-            string nom = tokens[0];
-            string nbBateau = tokens[1];
-            string taille = tokens[2];
+                string nom = tokens[0];
+                string nbBateau = tokens[1];
+                string taille = tokens[2];
 
-            int nbBateauInt = stoi(nbBateau);
-            int tailleInt = stoi(taille);
+                int nbBateauInt = stoi(nbBateau);
+                int tailleInt = stoi(taille);
 
-            if (nbBateauInt >= 1) {
-                for(int i = 0; i <= nbBateauInt - 1; i++){
-                    pair<int, int> p;
-                    p.first = 0;
-                    p.second = 0;
-                    CBateau b(nom, p, tailleInt);
-                    this->ajouterBateau(b);
+                if (nbBateauInt >= 1) {
+                    for (int i = 0; i < nbBateauInt; i++) {
+                        CBateau b(nom, make_pair(0, 0), tailleInt);
+                        this->ajouterBateau(b);
+                    }
                 }
+
             }
 
         }
-
-    }
 
     input.close();
 
@@ -146,14 +142,14 @@ bool CArmada::placerAleatoirement() {
     srand( (unsigned)time(NULL));
     int borneSup = TAILLE_GRILLE - 2;
 
-    if(this->getNbreTotCases() > borneSup*borneSup){
+    if (this->getNbreTotCases() > borneSup*borneSup) {
         return false;
     }
 
     vector<pair<int, int>> busy_cases;
     int error = 0;
 
-    for(int i = 0; i < (int)m_listeBateaux.size(); i++){
+    for (int i = 0; i < (int)m_listeBateaux.size(); i++) {
 
         int x = rand()%(borneSup + 1);
         int y = rand()%(borneSup + 1);
@@ -165,11 +161,11 @@ bool CArmada::placerAleatoirement() {
             found = false;
         } else if (i > 0) {
 
-            while(found and j <= (int)busy_cases.size()){
+            while (found and j <= (int)busy_cases.size()) {
 
-                for(int k = 0; k < this->m_listeBateaux[i].getTaille(); k++){
+                for (int k = 0; k < this->m_listeBateaux[i].getTaille(); k++) {
 
-                    if(busy_cases[j].first == x+k and busy_cases[j].second == y){
+                    if (&busy_cases[j] != NULL and busy_cases[j].first == x+k and busy_cases[j].second == y) {
                         found = false;
                     }
 
@@ -182,7 +178,7 @@ bool CArmada::placerAleatoirement() {
 
         if (found) {
 
-            for(int j = 0; j < this->m_listeBateaux[i].getTaille(); j++){
+            for (int j = 0; j < this->m_listeBateaux[i].getTaille(); j++) {
                 busy_cases.push_back(make_pair(x+j,y));
             }
 

@@ -1,6 +1,6 @@
-# ceci est une ligne de commentaire qui commence par « # »
-# format de 1 ligne :
-# nomDuBateau<ESPACE>nombreSurGrille<ESPACE>nombreCasesHorizontales
-# exemples :
-torpilleur 2 2
-porte-avion 1 4
+# Ceci est un commentaire
+# This is a comment
+sous-marin 2 5
+FREMM 1 2
+FLF 3 2
+FAA 1 2
